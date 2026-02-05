@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <style>
+        .container {
+            height: 500px;
+            width: 700px;
+            display: flex;
+            border: 3px solid rgb(113, 110, 110);
+            border-radius: 10px;
+            box-shadow: 3px 03px 7px gray;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        h1 {
+            display: flex;
+            margin-top: 100px;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Arithmatic Calculator</h1>
+    <div class="container">
+
+        <form name="my_form">
+            <div class="row">
+                <div class="col-md-2"><label for="exampleFormControlInput1" class="form-label "> Number One</label>
+                </div>
+                <div class="col-md-10"><input type="number" name="n1" class="form-control" id="exampleFormControlInput1"
+                        placeholder="number one"></div>
+                <div class="col-md-2"><label for="exampleFormControlInput1" class="form-label"> Number Two</label>
+                </div>
+                <div class="col-md-10"><input type="number" name="n2" class="form-control" id="exampleFormControlInput1"
+                        placeholder="number two">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 mt-4"><button type="button" onclick="add()"
+                            class="btn  btn-outline-primary">+</button></div>
+                    <div class="col-md-2 mt-4"><button type="button" onclick="sub()"
+                            class="btn btn-outline-primary">-</button></div>
+                    <div class="col-md-2 mt-4"><button type="button" onclick="multi()"
+                            class="btn btn-outline-primary">*</button></div>
+                    <div class="col-md-2 mt-4"><button type="button" onclick="div()"
+                            class="btn btn-outline-primary">/</button></div>
+                    <div class="col-md-2 mt-4"><button type="button" onclick="module()"
+                            class="btn btn-outline-primary">%</button></div>
+                    <div class="col-md-2 mt-4"><button type="reset" class="btn btn-outline-primary">Reset</button></div>
+                </div>
+
+            </div>
+            <label for="res" class="form-label mt-4">Result:</label>
+            <input type="text" name="res" class="form-control mt-2" disabled id="exampleFormControlInput1"
+                placeholder="Result">
+           
+            <script>
+                var a, b, result;
+                // add function
+                function add() {
+                    a = Number(document.my_form.n1.value);
+                    b = Number(document.my_form.n2.value);
+                    result = a + b;
+                    document.my_form.res.value = result.toFixed(2);
+                }
+                // sub function
+                function sub() {
+                    a = Number(document.my_form.n1.value);
+                    b = Number(document.my_form.n2.value);
+                    result = a - b;
+                    document.my_form.res.value = result.toFixed(2);
+                }
+                // multi function
+                function multi() {
+                    a = Number(document.my_form.n1.value);
+                    b = Number(document.my_form.n2.value);
+                    result = a * b;
+                    document.my_form.res.value = result.toFixed(2);
+                }
+
+                // div function
+                function div() {
+                    a = Number(document.my_form.n1.value);
+                    b = Number(document.my_form.n2.value);
+                    result = a / b;
+                    document.my_form.res.value = result.toFixed(2);
+                }
+
+                // module function
+                function module() {
+                    a = Number(document.my_form.n1.value);
+                    b = Number(document.my_form.n2.value);
+                    result = a % b;
+                    document.my_form.res.value = result.toFixed(2);
+                }
+
+            </script>
+
+        </form>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

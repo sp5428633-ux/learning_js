@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+    <style>
+        body{
+            background-color: white;
+            color: black;
+
+        }
+        .dark-mode{
+            background-color: black;
+            color: white;
+
+        }
+    </style>
+</head>
+<body >
+    <h2>change theme </h2>
+     <button onclick="theme()">Toogle Theme</button>
+
+     <script>
+        const theme = () => document.body.classList.toggle("dark-mode");
+       
+     </script>
+
+
+     <h1> welocome to my site </h1>
+
+
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque maiores modi quidem rem, recusandae quod consequatur a magnam, vitae numquam, corrupti laborum dolores placeat repellendus atque accusantium obcaecati natus enim.</p>
+
+    <h1>DOM example</h1>
+
+    <h3>Change text using DOM</h3>
+      <!-- // Example one -->
+     <h2 id="title"> Welcome to Pune </h2>
+     <button onclick="changetext()"> button</button>
+
+ <!-- // Example two  button color -->
+     <h3>change color </h3>
+     <h2 id="msg" > hello Its sagar</h2>
+     <button onclick="changecolor()"> click to change text color</button>
+
+      <!-- // Example image change  -->
+      <h3>change imgae</h3>
+      <img id="myimg" src="images/parot_imresizer.jpg" alt="">
+      <button onclick="changeimg()"> change image</button>
+
+
+      <!-- example user input message  -->
+       <h3>Input  from user</h3>
+       <input type="text" id="nameinput" placeholder="enter name ">
+       <button onclick="showname()">Submit</button>
+
+       <h1 id="output"></h1>
+
+       <!-- example  to delete text -->
+        <p id="deletetext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores veritatis culpa eaque placeat molestias distinctio repudiandae in quo voluptate quaerat sapiente rem consequatur cumque sint natus non aliquam, asperiores ab.</p>
+        <button onclick="remove()">Remove</button>
+
+
+        <!-- example -->
+         <p id="para">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat repudiandae ipsam perferendis. Vero dolorum suscipit nihil animi natus pariatur recusandae ut minus, aspernatur accusamus fugiat aliquam vel, quam maiores necessitatibus? 
+         </p>
+         <button onclick="increase()">Increase</button>
+         <button onclick="dicrease()">Decrease</button>
+
+    <script>
+     
+      function changetext(){
+        document.getElementById('title').innerHTML="Welcome to Pimpri";
+      }
+   
+   
+     function changecolor(){
+        document.getElementById('msg').style.color="red";
+     }
+     
+     function changeimg(){
+        document.getElementById('myimg').src="images/bird_imresizer.jpg"
+     }
+    
+      function showname(){
+        let name = document.getElementById("nameinput").value;
+        document.getElementById("output").innerHTML=" welcome  " + name;
+      }
+
+      function remove(){
+        document.getElementById("deletetext").remove();
+      }
+
+       let size = 16;
+      function increase(){
+        size ++;
+        document.getElementById('para').style.fontSize = size + 'px';
+      }
+
+      function dicrease(){
+        size --;
+         document.getElementById('para').style.fontSize = size + 'px';
+       
+      }
+
+    </script>
+</body>
+</html>

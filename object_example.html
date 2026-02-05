@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+</head>
+<body>
+    <script>
+        document.write("<h1>Object Examples<br></h1>")
+
+        var info={
+            fname:"sagar",
+            lname:"patil",
+            age:21,
+            players:['rohit',"virat","dhoni"],
+            address:{
+                city:"pimpri",
+                state:"maharastra",
+                country:"india"
+            },
+            phone:7894561230,
+            message:"good morning"
+        };
+
+        document.write( info.message + "<br>" + "my name is " + info.fname + "<br>" + "last name is " + info.lname + "<br>" + "my  age is " + info.age + "<br>"  +"phone no." + info.phone +"<br>" + "address is " + info.address.city  + "<br>" + "favorite players is " + info.players[1]  + "<br>" + "  I am from  " + info.address.country);
+    </script>
+</body>
+</html>

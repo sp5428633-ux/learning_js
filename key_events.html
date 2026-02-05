@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>key events</title>
+</head>
+
+<!-- 
+onkeypress="hello()"  onresize="hello()" onscroll="hello" onload="hello()"   oncontextmenu="return false"-->
+<body oncontextmenu="return false" >
+
+
+    <button onclick="hello()">
+        single click
+    </button>
+
+      <button ondblclick="hello()">double</button>
+
+      <button onmouseenter="hello()">onmouse</button>
+
+      <button onmouseout="hello()">mouseout</button>
+
+      <button oncontextmenu="hello()"> text menu</button>
+    <script>
+        function hello(){
+            alert("hello is key event")
+        }
+
+    </script>
+</body>
+</html>

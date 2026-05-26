@@ -4,55 +4,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>form validation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <style>
-    
+
 </style>
 
 <body>
 
 
     <div class="container border border-dark p-2  m-5 w-50 h-50">
-        <form>
+        <form   onsubmit="return validate()">
             <h1>Form</h1>
             <div class="row">
                 <div class="col-sm-3"> <label for="exampleInputtext1" class="form-label"> Name:</label></div>
-                <div class="col-sm-9"> <input type="text" class="form-control mb-3" id="exampleInputText1"></div>
+                <div class="col-sm-9"> <input type="text" class="form-control mb-3" id="name"  name="name">
+                    <span class="text-danger" id="nameError"></span>
+                </div>
                 <div class="col-sm-3"> <label for="exampleInputtext1" class="form-label"> Mobile Number:</label></div>
-                <div class="col-sm-9"> <input type="text" class="form-control mb-3" id="exampleInputText1"></div>
+                <div class="col-sm-9"> <input type="text" class="form-control mb-3" id="mobile"  name="mobile">
+                    <span class="text-danger" id="mobileError"></span>
+                </div>
                 <div class="col-sm-3"><label for="exampleInputtext1" class="form-label">Gmail Id:</label></div>
-                <div class="col-sm-9"><input type="gmail" class="form-control mb-3" id="exampleInputText1"></div>
+                <div class="col-sm-9"><input type="email" class="form-control mb-3" id="gmail"  name="gmail">
+                    <span class="text-danger" id="gmailError"></span>
+                </div>
                 <div class="col-sm-3"><label for="exampleInputtext1" class="form-label">Password:</label></div>
-                <div class="col-sm-9"> <input type="password" class="form-control mb-3" id="exampleInputText1"></div>
+                <div class="col-sm-9"> <input type="password" class="form-control mb-3" id="password"  name="password">
+                    <span class="text-danger" id="passwordError"></span>
+                </div>
                 <div class="col-sm-3"> <label for="exampleInputtext1" class="form-label"> Confirm Password:</label>
                 </div>
-                <div class="col-sm-9"> <input type="password" class="form-control mb-3" id="exampleInputText1"></div>
+                <div class="col-sm-9"> <input type="password" class="form-control mb-3" id="confirmpassword"  name="confirmpassword">
+                    <span class="text-danger" id="ConfirmpasswordError"></span>
+                </div>
 
                 <div class="col-sm-12 m-2 ">
-                <label for="exampleInputtext1" class="form-label me-2">Gender:</label>
-                <input type="radio" class="form-check-input ms-3" id="radio1" name="optradio" value="option1" checked>  Male
-                <input type="radio" class="form-check-input me-1 ms-3" id="radio2" name="optradio" value="option2" checked>  Female
-                <input type="radio" class="form-check-input me-1 ms-3" id="radio3" name="optradio" value="option3" checked>  Others
-            </div>
+                    <label for="exampleInputtext1" class="form-label me-2">Gender:</label>
+                    <input type="radio" class="form-check-input ms-3" id="male" name="gender" value="male"
+                        > Male
+                    <input type="radio" class="form-check-input me-1 ms-3" id="female" name="gender" value="female"
+                        > Female
+                    <input type="radio" class="form-check-input me-1 ms-3" id="other" name="gender" value="other"
+                        > Others
+                        <span class="text-danger" id="genderError"></span>
+                </div>
 
                 <div class="col-sm-3"><label for="comment">Message:</label></div>
-                <div class="col-sm-3"> <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+                <div class="col-sm-3"> <textarea class="form-control" rows="5" id="message" name="message"></textarea>
+                    <span class="text-danger" id="messageError"></span>
                 </div>
                 <div class="col-sm-12"> <label class="form-check-label mt-3 ">
-                        <input class="form-check-input " type="checkbox" name="remember"> I agree to the Terms And
+                        <input class="form-check-input" type="checkbox" id="agree" name="agree"> I agree to the Terms And
                         Conditions
-                    </label></div>
+                    </label>
+                     <span class="text-danger" id="agreeError"></span>
+                </div>
                 <div class="col-sm-3"><button type="submit" class="btn btn-primary mt-2 ">Submit</button></div>
-
-
             </div>
-
         </form>
     </div>
 
+
+
+    <script>
+        // get form values
+        function validate(){
+        const name = document.getElementById('name').value.trim();
+        const gmail = document.getElementById('gmail').value.trim();
+        const mobile = document.getElementById('mobile').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const confirmpassword = document.getElementById('confirmpassword').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const agree = document.getElementById('agree').checked;
+        const gender= document.querySelector('input[name="gender"]:checked');
+
+       // ErrorSpan
+       const nameError=document.getElementById('nameError');
+       const gmailError=document.getElementById('gmailError');
+       const mobileError=document.getElementById('mobileError');
+       const passwordError=document.getElementById('passwordError');
+       const ConfirmpasswordError=document.getElementById('ConfirmpasswordError');
+       const messageError=document.getElementById('messageError');
+       const genderError=document.getElementById('genderError');
+      const agreeError=document.getElementById('agreeError');
+
+
+      // clear previous error messages
+      nameError.textContent="";
+      genderError.textContent="";
+       mobileError.textContent="";
+      passwordError.textContent="";
+    ConfirmpasswordError.textContent="";
+    messageError.textContent="";
+    genderError.textContent="";
+    agreeError.textContent="";
+  
+    let isvalid = true;
+
+
+    // validate fields
+     //name
+    if(name ===""){
+        nameError.textContent="Please Enter Your Name";
+        isvalid = false;
+    }else if(name.length<3){
+        nameError.textContent="Please Enter Atleast 3 Characters Name";
+        isvalid = false;
+    }
+
+    //gmail
+    if(gmail===""){
+         gmailError.textContent="Please Enter Your gamil";
+        isvalid = false;
+    }else if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(gmail)){
+        gmailError.textContent="Please Enter valid gmail";
+        isvalid = false;
+    }
+
+    // mobile
+    if(mobile===""){
+         mobileError.textContent="Please Enter Your Mobile Number";
+        isvalid = false;
+    }else if(! /^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$/.test(mobile)){
+         mobileError.textContent="Please valid 10-digit Mobile Number";
+        isvalid = false;
+    }
+    // password
+     if(password===""){
+         passwordError.textContent="Please Enter  Your  Password";
+        isvalid = false;
+    }else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{8,15}$/.test(password)){
+         passwordError.textContent="Please valid Password";
+        isvalid = false;
+    }
+
+    // Confirm Password
+     if(confirmpassword===""){
+         ConfirmpasswordError.textContent="Please Enter Your  Password";
+        isvalid = false;
+    }else if(confirmpassword != password){
+         ConfirmpasswordError.textContent="Password do Not Match";
+        isvalid = false;
+    }
+
+    if(message===""){
+        messageError.textContent = "Please Enter Your Mesaage";
+        isvalid = false;
+    }
+
+    if(!gender){
+        genderError.textContent = "Please Select Your gender";
+        isvalid = false;
+    }
+
+    if(!agree){
+        agreeError.textContent = "You Must agree to Term and conditions";
+        isvalid = false;
+    }
+
+    // Show Boostrap success alert if valid
+    if(isvalid){
+        alert("Form Submitted succesfully");
+    }
+
+
+    return isvalid;// prevent  form submission if valid
+
+
+     }
+
+ 
+    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
